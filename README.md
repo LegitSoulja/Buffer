@@ -3,6 +3,8 @@
 #### Writer
 
 ```js
+const { Writer, Reader } = require('./buffer.js');
+
 var writer = new Buffer.Writer(1024);
 var littleEndian = true; 
 writer.writeInt8(-1);
@@ -25,7 +27,7 @@ writer.writeFloat64(0, littleEndian);
 #### Reader
 
 ```js
-var reader = new Buffer.Writer(writer.toBuffer());
+var reader = new Buffer.Reader(writer.toBuffer());
 
 console.log(reader.readInt8()); // -1
 console.log(reader.readUInt8()); // 1
