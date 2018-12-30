@@ -153,11 +153,10 @@ class Writer {
         this.index += 8
     }
 
-    writeString8(n, le) {
+    writeString8(n) {
         if (typeof n !== 'string') return;
-        le = le || false;
         for (var i in n) {
-            this.writeUInt8(n.charCodeAt(i), le);
+            this.writeUInt8(n.charCodeAt(i));
         }
         this.writeUInt8(0);
     }
