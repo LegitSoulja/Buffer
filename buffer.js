@@ -56,10 +56,10 @@ class Reader {
 
     readString8() {
         var data = "";
-        while(true){
-          var char = this.readUInt8();
-          if(char == 0) break;
-          data += String.fromCharCode(char);
+        while (true) {
+            var char = this.readUInt8();
+            if (char == 0) break;
+            data += String.fromCharCode(char);
         }
         return data;
     }
@@ -67,10 +67,10 @@ class Reader {
     readString16(le) {
         var data = "";
         le = le || false;
-        while(true){
-          var char = this.readUInt16(le);
-          if(char == 0) break;
-          data += String.fromCharCode(char);
+        while (true) {
+            var char = this.readUInt16(le);
+            if (char == 0) break;
+            data += String.fromCharCode(char);
         }
         return data;
     }
@@ -78,10 +78,10 @@ class Reader {
     readString32(le) {
         var data = "";
         le = le || false;
-        while(true){
-          var char = this.readUInt32(le);
-          if(char == 0) break;
-          data += String.fromCharCode(char);
+        while (true) {
+            var char = this.readUInt32(le);
+            if (char == 0) break;
+            data += String.fromCharCode(char);
         }
         return data;
     }
@@ -99,6 +99,10 @@ class Writer {
 
     toBuffer() {
         return this.buffer;
+    }
+
+    reset() {
+        this.index = 0;
     }
 
     writeInt8(n) {
@@ -179,6 +183,6 @@ class Writer {
 }
 
 module.exports = {
-  Writer: Writer,
-  Reader: Reader
+    Writer: Writer,
+    Reader: Reader
 }
