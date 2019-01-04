@@ -101,53 +101,64 @@
 
         reset() {
             this.index = 0
+            return this;
         }
 
         writeInt8(n) {
             this.buffer.setInt8(this.index++, n);
+            return this;
         }
 
         writeUInt8(n) {
             this.buffer.setUint8(this.index++, n);
+            return this;
         }
 
         writeInt16(n, le) {
             this.buffer.setInt16(this.index, n, le || false);
             this.index += 2;
+            return this;
         }
 
         writeUInt16(n, le) {
             this.buffer.setUint16(this.index, n, le || false);
             this.index += 2;
+            return this;
         }
 
         writeInt32(n, le) {
             this.buffer.setInt32(this.index, n, le || false);
             this.index += 4;
+            return this;
         }
 
         writeUInt32(n, le) {
             this.buffer.setUint32(this.index, n, le || false);
             this.index += 4;
+            return this;
         }
 
         writeInt64(n, le) {
             this.buffer.setBigInt64(this.index, n, le || false);
             this.index += 8;
+            return this;
         }
 
         writeUInt64(n, le) {
             this.buffer.setBitUint64(this.index, n, le || false);
             this.index += 8;
+            return this;
         }
 
         writeFloat32(n, le) {
             this.buffer.setFloat32(this.index, n, le || false);
             this.index += 4;
+            return this;
         }
 
         writeFloat64(n, le) {
             this.buffer.setFloat64(this.index, n, le || false)
+            return this;
         }
 
         writeString8(n) {
@@ -155,7 +166,7 @@
             for (var i in n) {
                 this.writeUInt8(n.charCodeAt(i))
             }
-            this.writeUInt8(0);
+            return this.writeUInt8(0);
         }
 
         writeString16(n, le) {
@@ -164,7 +175,7 @@
             for (var i in n) {
                 this.writeUInt16(n.charCodeAt(i), le)
             }
-            this.writeUInt16(0);
+            return this.writeUInt16(0);
         }
 
         writeString32(n, le) {
@@ -173,7 +184,7 @@
             for (var i in n) {
                 this.writeUInt32(n.charCodeAt(i), le)
             }
-            this.writeUInt32(0);
+            return this.writeUInt32(0);
         }
 
     }
