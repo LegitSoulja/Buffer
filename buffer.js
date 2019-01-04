@@ -169,8 +169,7 @@ class Writer {
         for (var i in n) {
             this.writeUInt8(n.charCodeAt(i));
         }
-        this.writeUInt8(0);
-        return this;
+        return this.writeUInt8(0);
     }
 
     writeString16(n, le) {
@@ -179,8 +178,7 @@ class Writer {
         for (var i in n) {
             this.writeUInt16(n.charCodeAt(i), le);
         }
-        this.writeUInt16(0);
-        return this;
+        return this.writeUInt16(0);
     }
 
     writeString32(n, le) {
@@ -189,8 +187,7 @@ class Writer {
         for (var i in n) {
             this.writeUInt32(n.charCodeAt(i), le);
         }
-        this.writeUInt32(0);
-        return this;
+        return this.writeUInt32(0);
     }
 
 }
