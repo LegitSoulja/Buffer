@@ -103,54 +103,65 @@ class Writer {
 
     reset() {
         this.index = 0;
+        return this;
     }
 
     writeInt8(n) {
         this.buffer.writeInt8(n, this.index++);
+        return this;
     }
 
     writeUInt8(n) {
         this.buffer.writeUInt8(n, this.index++);
+        return this;
     }
 
     writeInt16(n, le) {
         ((le || false) ? this.buffer.writeInt16LE(n, this.index) : this.buffer.writeInt16BE(n, this.index));
         this.index += 2;
+        return this;
     }
 
     writeUInt16(n, le) {
         ((le || false) ? this.buffer.writeUInt16LE(n, this.index) : this.buffer.writeUInt16BE(n, this.index))
         this.index += 2;
+        return this;
     }
 
     writeInt32(n, le) {
         ((le || false) ? this.buffer.writeInt32LE(n, this.index) : this.buffer.writeInt32BE(n, this.index));
         this.index += 4;
+        return this;
     }
 
     writeUInt32(n, le) {
         ((le || false) ? this.buffer.writeUInt32LE(n, this.index) : this.buffer.writeUInt32BE(n, this.index));
         this.index += 4;
+        return this;
     }
 
     writeInt64(n, le) {
         ((le || false) ? this.buffer.writeBigInt64LE(n, this.index) : this.buffer.writeBigInt64BE(n, this.index));
         this.index += 8;
+        return this;
     }
 
     writeUInt64(n, le) {
         ((le || false) ? this.buffer.writeBigUInt64LE(n, this.index) : this.buffer.writeBigUInt64BE(n, this.index));
         this.index += 8;
+        return this;
     }
 
     writeFloat32(n, le) {
         ((le || false) ? this.buffer.writeFloatLE(n, this.index) : this.buffer.writeFloatBE(n, this.index));
         this.index += 4;
+        return this;
     }
 
     writeFloat64(n, le) {
         ((le || false) ? this.buffer.writeFloat64LE(n, this.index) : this.buffer.writeFloat64BE(n, this.index))
         this.index += 8
+        return this;
     }
 
     writeString8(n) {
@@ -159,6 +170,7 @@ class Writer {
             this.writeUInt8(n.charCodeAt(i));
         }
         this.writeUInt8(0);
+        return this;
     }
 
     writeString16(n, le) {
@@ -168,6 +180,7 @@ class Writer {
             this.writeUInt16(n.charCodeAt(i), le);
         }
         this.writeUInt16(0);
+        return this;
     }
 
     writeString32(n, le) {
@@ -177,6 +190,7 @@ class Writer {
             this.writeUInt32(n.charCodeAt(i), le);
         }
         this.writeUInt32(0);
+        return this;
     }
 
 }
